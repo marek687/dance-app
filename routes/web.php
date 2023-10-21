@@ -22,5 +22,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/hello',[ActionController::class,'show']);
+Route::get('/home/action',[ActionController::class,'show']);
 
