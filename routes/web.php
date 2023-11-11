@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ActionController;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\EventsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/home/action',[ActionController::class,'index']);
-Route::get('/home/action/create',[ActionController::class,'create']);
-
+Route::get('/events',[EventsController::class,'index'])->name('events.index');
+Route::get('/events/create',[EventsController::class,'create'])->name('events.create');
+Route::post('/events/store',[EventsController::class,'store'])->name('events.store');

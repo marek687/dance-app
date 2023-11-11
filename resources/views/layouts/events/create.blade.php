@@ -65,7 +65,7 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
-                            <a class="dropdown-item" href="/home/action">Wydarzenie</a>
+                            <a class="dropdown-item" href="{{ route('events.create')}}">Wydarzenie</a>
                         </div>
 
                     </li>
@@ -80,7 +80,9 @@
     <!-- Author: FormBold Team -->
     <!-- Learn More: https://formbold.com -->
     <div class="formbold-form-wrapper">
-      <form action="https://formbold.com/s/FORM_ID" method="POST" class="form">
+      <form action="{{ route('events.store') }}" method="post" class="form">
+        @csrf
+        @method('post')
         <div class="formbold-mb-5">
           <label for="name" class="formbold-form-label"> Nazwa kursu </label>
           <input
@@ -93,52 +95,40 @@
         </div>
 
         <div class="flex flex-wrap formbold--mx-3">
-          <div class="w-full sm:w-half formbold-px-3">
-            <div class="formbold-mb-5 w-full">
-              <label for="date" class="formbold-form-label"> Data </label>
-              <input
-                type="date"
-                name="date"
-                id="date"
-                class="formbold-form-input"
-              />
+            <div class="w-full sm:w-half formbold-px-3">
+                <div class="formbold-mb-5 w-full">
+                <label for="data" class="formbold-form-label"> Data </label>
+                <input
+                    type="date"
+                    name="data"
+                    id="data"
+                    class="formbold-form-input"
+                />
+                </div>
             </div>
-          </div>
 
-          <div class="w-full sm:w-half formbold-px-3">
-            <div class="formbold-mb-5">
-              <label for="time" class="formbold-form-label"> Czas </label>
-              <input
-                type="time"
-                name="time"
-                id="time"
-                class="formbold-form-input"
-              />
+            <div class="w-full sm:w-half formbold-px-3">
+                <div class="formbold-mb-5">
+                <label for="time" class="formbold-form-label"> Czas </label>
+                <input
+                    type="time"
+                    name="time"
+                    id="time"
+                    class="formbold-form-input"
+                />
+                </div>
             </div>
-          </div>
-
-        </div>
-
-        <div class="formbold-mb-5">
-            <label for="name" class="formbold-form-label"> Członkowie </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Członkowie"
-              class="formbold-form-input"
-            />
         </div>
 
         <div>
             <div class="row">
                 <div class="col">
-                    <a href="/home/action">
-                        <button type="button" class="btn btn-primary">Zapisz wydarzenie</button>
+                    <a href="{{ route('events.index')}}">
+                        <button type="submit" class="btn btn-primary">Zapisz wydarzenie</button>
                     </a>
                   </div>
                   <div class="col ">
-                    <a href="/home/action">
+                    <a href="{{ route('events.index')}}">
                         <button type="button" class="btn btn-primary">Powrót</button>
                     </a>
                   </div>
@@ -147,4 +137,3 @@
 
       </form>
     </div>
-  </div>
