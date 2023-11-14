@@ -9,7 +9,8 @@ class EventsController extends Controller
 {
     public function index()
     {
-        return view('layouts.events.index');
+        $events = Events::all();
+        return view('layouts.events.index',['events' => $events]);
     }
     public function create()
     {

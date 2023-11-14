@@ -76,5 +76,40 @@
     </div>
 </nav>
 <body>
-    sdfsdfds
+    <div class="container">
+        <div class="row p-2">
+            <div class="col">
+                <h2>Dodaj kurs</h2>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-primary">
+                    <a class="dropdown-item" href="{{ route('events.create')}}">Dodaj wydarzenie</a>
+                </button>
+            </div>
+        </div>
+    <div>
+    <div class="container">
+        <table class="table table-striped table-dark">
+            <thead>
+            <tr>
+                <th scope="col">Lp.</th>
+                <th scope="col">Nazwa kursu</th>
+                <th scope="col">Data</th>
+                <th scope="col">Godzina</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                @foreach($events as $event)
+                <tr>
+                    <th scope="col">{{$event->id}}</th>
+                    <th scope="col">{{$event->name}}</th>
+                    <th scope="col">{{$event->data}}</th>
+                    <th scope="col">{{$event->time}}</th>
+                </tr>
+                @endforeach()
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
