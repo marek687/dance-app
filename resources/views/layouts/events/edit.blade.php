@@ -76,44 +76,68 @@
     </div>
 </nav>
 <body>
-    <div class="container">
-        <div class="row p-2">
-            <div class="col">
-                <h2>Dodaj kurs</h2>
+<div class="formbold-main-wrapper">
+    <!-- Author: FormBold Team -->
+    <!-- Learn More: https://formbold.com -->
+    <div class="formbold-form-wrapper">
+      <form action="" method="post" class="form">
+        @csrf
+        @method('post')
+        <div class="formbold-mb-5">
+          <label for="name" class="formbold-form-label" > Nazwa kursu </label>
+          <input
+            value="{{$event->name}}"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Nazwa kursu"
+            class="formbold-form-input"
+          />
+        </div>
+
+        <div class="flex flex-wrap formbold--mx-3">
+            <div class="w-full sm:w-half formbold-px-3">
+                <div class="formbold-mb-5 w-full">
+                <label for="data" class="formbold-form-label" > Data </label>
+                <input
+                    value="{{$event->data}}"
+                    type="date"
+                    name="data"
+                    id="data"
+                    class="formbold-form-input"
+                />
+                </div>
             </div>
-            <div class="col">
-                <button type="button" class="btn btn-primary">
-                    <a class="dropdown-item" href="{{ route('events.create')}}">Dodaj wydarzenie</a>
-                </button>
+
+            <div class="w-full sm:w-half formbold-px-3">
+                <div class="formbold-mb-5">
+                <label for="time" class="formbold-form-label" > Czas </label>
+                <input
+                    value="{{$event->time}}"
+                    type="time"
+                    name="time"
+                    id="time"
+                    class="formbold-form-input"
+                />
+                </div>
             </div>
         </div>
-    <div>
-    <div class="container">
-        <table class="table table-striped table-dark">
-            <thead>
-            <tr>
-                <th scope="col">Lp.</th>
-                <th scope="col">Nazwa kursu</th>
-                <th scope="col">Data</th>
-                <th scope="col">Godzina</th>
-                <th scope="col">Edycja</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                @foreach($events as $event)
-                <tr>
-                    <th scope="col">{{$event->id}}</th>
-                    <th scope="col">{{$event->name}}</th>
-                    <th scope="col">{{$event->data}}</th>
-                    <th scope="col">{{$event->time}}</th>
-                    <th>
-                        <a href="{{route('events.edit',['event' => $event])}}" class="btn btn-primary stretched-link">Edycja</a>
-                    </th>
-                </tr>
-                @endforeach()
-            </tr>
-            </tbody>
-        </table>
+
+        <div>
+            <div class="row">
+                <div class="col">
+                    <a href="{{ route('events.index')}}">
+                        <button type="submit" class="btn btn-primary">Zapisz wydarzenie</button>
+                    </a>
+                  </div>
+                  <div class="col ">
+                    <a href="{{ route('events.index')}}">
+                        <button type="button" class="btn btn-primary">Powrót</button>
+                    </a>
+                  </div>
+            </div>
+        </div>
+
+      </form>
     </div>
 </body>

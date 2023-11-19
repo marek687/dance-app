@@ -26,3 +26,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/events',[EventsController::class,'index'])->name('events.index');
 Route::get('/events/create',[EventsController::class,'create'])->name('events.create');
 Route::post('/events/store',[EventsController::class,'store'])->name('events.store');
+Route::get('/events/{event}/edit',[EventsController::class,'edit'])->name('events.edit');

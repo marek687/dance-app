@@ -26,4 +26,8 @@ class EventsController extends Controller
         $newEvent = Events::create($data);
         return redirect( route('events.index'));
     }
+    public function edit(Events $event)
+    {
+        return view('layouts.events.edit',['event'=> $event]);
+    }
 }
