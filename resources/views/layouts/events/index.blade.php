@@ -65,7 +65,8 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
-                            <a class="dropdown-item" href="{{ route('events.create')}}">Wydarzenie</a>
+                            <a class="dropdown-item" href="{{ route('events.index')}}">Wydarzenie</a>
+
                         </div>
 
                     </li>
@@ -82,13 +83,22 @@
                 <h2>Dodaj kurs</h2>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-primary">
-                    <a class="dropdown-item" href="{{ route('events.create')}}">Dodaj wydarzenie</a>
-                </button>
+
+                    <a class="dropdown-item" href="{{ route('events.create')}}">
+                        <button type="button" class="btn btn-primary">
+                            Dodaj wydarzenie</button></a>
+
             </div>
         </div>
     <div>
     <div class="container">
+        <div>
+            @if(session()->has('success'))
+                </div>
+                    {{ session('success')}}
+                </div>
+            @endif
+        </div>
         <table class="table table-striped table-dark">
             <thead>
             <tr>
@@ -97,22 +107,30 @@
                 <th scope="col">Data</th>
                 <th scope="col">Godzina</th>
                 <th scope="col">Edycja</th>
+                <th scope="col">Usuń</th>
             </tr>
             </thead>
+
             <tbody>
-            <tr>
-                @foreach($events as $event)
+                @foreach($events as $events)
                 <tr>
-                    <th scope="col">{{$event->id}}</th>
-                    <th scope="col">{{$event->name}}</th>
-                    <th scope="col">{{$event->data}}</th>
-                    <th scope="col">{{$event->time}}</th>
-                    <th>
-                        <a href="{{route('events.edit',['event' => $event])}}" class="btn btn-primary stretched-link">Edycja</a>
+                    <th scope="col">{{$events->id}}</th>
+                    <th scope="col">{{$events->name}}</th>
+                    <th scope="col">{{$events->data}}</th>
+                    <th scope="col">{{$events->time}}</th>
+                    <th scope="col">
+                        <a href="{{ route('events.edit',['events' => $events ])}}" class="btn btn-primary">Edycja</a>
+                    </th>
+                    <th scope="col">
+                        <form method="post" action=" {{ route('events.destroy',[ 'events' => $events ])}}">
+                            @csrf
+                            @method('delete')
+                            <input type="submit" value="Usuń" class="btn btn-danger"/>
+                        </form>
                     </th>
                 </tr>
                 @endforeach()
-            </tr>
+
             </tbody>
         </table>
     </div>
