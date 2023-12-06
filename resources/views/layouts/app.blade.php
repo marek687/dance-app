@@ -65,6 +65,8 @@
                                         @csrf
                                     </form>
                                     <a class="dropdown-item" href="{{ route('events.index')}}">Wydarzenie</a>
+                                    <a class="dropdown-item" href="{{ route('users.index')}}">Użytkownicy</a>
+
 
                                 </div>
 
