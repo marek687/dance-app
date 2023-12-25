@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+     <!-- Style css for events fileds -->
+    <link href="{{ asset('action/set.css') }}" rel="stylesheet">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -55,6 +57,10 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                                    <a class="dropdown-item" href="{{ route('events.index')}}">Wydarzenie</a>
+                                    <a class="dropdown-item" href="{{ route('users.index')}}">Użytkownicy</a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -64,10 +70,6 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                    <a class="dropdown-item" href="{{ route('events.index')}}">Wydarzenie</a>
-                                    <a class="dropdown-item" href="{{ route('users.index')}}">Użytkownicy</a>
-
-
                                 </div>
 
                             </li>
@@ -80,6 +82,9 @@
 
         <main class="py-4">
             @yield('content')
+        </main>
+        <main class="py-4">
+            @yield('events')
         </main>
     </div>
 </body>
