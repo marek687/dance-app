@@ -60,6 +60,7 @@
 
                                     <a class="dropdown-item" href="{{ route('events.index')}}">Wydarzenie</a>
                                     <a class="dropdown-item" href="{{ route('users.index')}}">Użytkownicy</a>
+                                    <a class="dropdown-item" href="{{ route('group.index')}}">Grupy</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -86,6 +87,7 @@
         <main class="py-4">
             @yield('events')
         </main>
+
     </div>
 </body>
 </html>

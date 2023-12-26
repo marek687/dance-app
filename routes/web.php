@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GroupController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,3 +33,11 @@ Route::delete('/events/{events}/destroy',[EventsController::class,'destroy'])->n
 
 
 Route::get('/users/list',[UserController::class,'index'])->name('users.index');
+
+
+Route::get('/group', [GroupController::class, 'index'])->name('group.index');
+Route::get('/group/create', [GroupController::class, 'create'])->name('group.create');
+Route::post('/group', [GroupController::class, 'store'])->name('group.store');
+Route::get('/group/{group}/edit', [GroupController::class, 'edit'])->name('group.edit');
+Route::put('/group/{group}/update', [GroupController::class, 'update'])->name('group.update');
+Route::delete('/group/{group}/destroy', [GroupController::class, 'destroy'])->name('group.destroy');
