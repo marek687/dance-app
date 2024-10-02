@@ -23,11 +23,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index()
     {
         $users = User::with('groups')->get();
+  
+        return view('layouts.test.index',[
+            'users'=> User::all()
+        ]);
+        return response()->json(['user' => $users], 200);
 
         
-        return response()->json(['user' => $users], 200);
     }
 }
