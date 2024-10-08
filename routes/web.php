@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\UserGroupController;
 use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +41,9 @@ Route::post('/group', [GroupController::class, 'store'])->name('group.store');
 Route::get('/group/{group}/edit', [GroupController::class, 'edit'])->name('group.edit');
 Route::put('/group/{group}/update', [GroupController::class, 'update'])->name('group.update');
 Route::delete('/group/{group}/destroy', [GroupController::class, 'destroy'])->name('group.destroy');
+
+
+Route::get('/group-user', [UserGroupController::class, 'index'])->name('group-user.index');
+Route::get('/group-user/create', [UserGroupController::class, 'create'])->name('group-user.create');
+
+

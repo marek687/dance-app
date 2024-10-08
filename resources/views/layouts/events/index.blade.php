@@ -14,6 +14,13 @@
                             Dodaj wydarzenie</button></a>
 
             </div>
+            <div class="col">
+
+                    <a class="dropdown-item" href="{{ route('group-user.create')}}">
+                        <button type="button" class="btn btn-primary">
+                            Dodaj użytkownika do grupy</button></a>
+
+            </div>
             
         </div>
     <div>

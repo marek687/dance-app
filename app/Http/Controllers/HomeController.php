@@ -26,13 +26,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        $users = User::with('groups')->get();
-  
-        return view('layouts.test.index',[
-            'users'=> User::all()
-        ]);
-        return response()->json(['user' => $users], 200);
-
-        
+       
+         return view('home'); 
     }
+   
 }
