@@ -40,10 +40,24 @@ class UserGroupController extends Controller
     public function create()
     {
         $users = User::with('groups')->get();
+        //$groups = Group::with('users')->get();
+
   
         return view('layouts.group-user.create',[
             'users'=> User::all()
         ]);
         // return view('layouts.group-user.create');
+    }
+
+    public function show()
+    {
+        $users = User::with('groups')->get();
+        
+        $users = User::orderBy('created_at','ASC');
+        
+        return view('layouts.group-user.show',[
+            'users'=> User::all()
+        ]);
+
     }
 }

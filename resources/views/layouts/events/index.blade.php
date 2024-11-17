@@ -14,13 +14,7 @@
                             Dodaj wydarzenie</button></a>
 
             </div>
-            <div class="col">
 
-                    <a class="dropdown-item" href="{{ route('group-user.create')}}">
-                        <button type="button" class="btn btn-primary">
-                            Dodaj użytkownika do grupy</button></a>
-
-            </div>
             
         </div>
     <div>
@@ -41,6 +35,8 @@
                 <th scope="col">Godzina</th>
                 <th scope="col">Edycja</th>
                 <th scope="col">Usuń</th>
+                <th scope="col">Użytkownicy grupy</th>
+                <th scope="col">Dodaj użytkownika do grupy</th>
             </tr>
             </thead>
 
@@ -60,6 +56,22 @@
                             @method('delete')
                             <input type="submit" value="Usuń" class="btn btn-danger"/>
                         </form>
+                    </th>
+                    <th scope="col">
+                        <a class="dropdown-item" href="{{ route('group-user.show')}}">
+                            <button type="button" class="btn btn-secondary">
+                                Sprawdż</button></a>
+
+                        </div>
+                    </th>
+                    <th scope="col">
+                    <div class="col">
+
+                        <a class="dropdown-item" href="{{ route('group-user.create')}}">
+                            <button type="button" class="btn btn-success">
+                                Dodaj</button></a>
+
+                        </div>
                     </th>
                 </tr>
                 @endforeach()
