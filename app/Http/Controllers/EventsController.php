@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Events;
+use Barryvdh\DomPDF\Facade\PDF;
+
 
 class EventsController extends Controller
 {
@@ -49,4 +51,20 @@ class EventsController extends Controller
         return redirect( route('events.index'))->with('success','Wydarzenie zostało usunięte.');
     }
 
+    public function pdf_generator_get()
+    {
+        $events = Events::all();
+        
+        $data = [
+            [
+            'quantity' => 1,
+            'description' => '1 Year Subscription',
+            'price' => '129.00'
+            ]
+        ];
+        
+        $pdf= Pdf::loadView('layouts/events/invoice', ['data' => $data ]);
+        
+        return $pdf->download();
+    }
 }

@@ -14,7 +14,9 @@
                             Dodaj wydarzenie</button></a>
 
             </div>
-
+            <div class="col">
+                <a href="{{ url('invoice') }}" class="btn btn-success">Download PDF</a>
+            </div>
             
         </div>
     <div>

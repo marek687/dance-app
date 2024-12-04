@@ -31,6 +31,8 @@ Route::get('/events/{events}/edit',[EventsController::class,'edit'])->name('even
 Route::put('/events/{events}/update',[EventsController::class,'update'])->name('events.update');
 Route::delete('/events/{events}/destroy',[EventsController::class,'destroy'])->name('events.destroy');
 
+Route::get('/invoice',[EventsController::class,'pdf_generator_get']);
+
 
 Route::get('/users/list',[UserController::class,'index'])->name('users.index');
 
