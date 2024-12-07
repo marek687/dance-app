@@ -54,16 +54,13 @@ class EventsController extends Controller
     public function pdf_generator_get()
     {
         $events = Events::all();
+
+        $options = new \Dompdf\Options();
+        $options->set('dpi', 100);
+        $options->set('isPhpEnabled', TRUE);
+      
         
-        $data = [
-            [
-            'quantity' => 1,
-            'description' => '1 Year Subscription',
-            'price' => '129.00'
-            ]
-        ];
-        
-        $pdf= Pdf::loadView('layouts/events/invoice', ['data' => $data ]);
+        $pdf= Pdf::loadView('layouts/events/invoice', ['events' => $events ]);
         
         return $pdf->download();
     }
