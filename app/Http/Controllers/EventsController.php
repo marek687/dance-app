@@ -64,4 +64,11 @@ class EventsController extends Controller
         
         return $pdf->download();
     }
+
+    public function sort(Events $events)
+    {
+        dd($events);
+       return view('layouts.events.sort');
+    }
+
 }

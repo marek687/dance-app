@@ -31,6 +31,9 @@ Route::get('/events/{events}/edit',[EventsController::class,'edit'])->name('even
 Route::put('/events/{events}/update',[EventsController::class,'update'])->name('events.update');
 Route::delete('/events/{events}/destroy',[EventsController::class,'destroy'])->name('events.destroy');
 
+Route::get('/events/{events}/sort', [EventsController::class, 'sort'])->name('events.sort');
+
+
 Route::get('/invoice',[EventsController::class,'pdf_generator_get']);
 
 
@@ -43,6 +46,8 @@ Route::post('/group', [GroupController::class, 'store'])->name('group.store');
 Route::get('/group/{group}/edit', [GroupController::class, 'edit'])->name('group.edit');
 Route::put('/group/{group}/update', [GroupController::class, 'update'])->name('group.update');
 Route::delete('/group/{group}/destroy', [GroupController::class, 'destroy'])->name('group.destroy');
+
+
 
 
 Route::get('/group-user', [UserGroupController::class, 'index'])->name('group-user.index');

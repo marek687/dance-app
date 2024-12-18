@@ -60,7 +60,7 @@
                         </form>
                     </th>
                     <th scope="col">
-                        <a class="dropdown-item" href="{{ route('group-user.show')}}">
+                        <a class="dropdown-item" href="{{ route('events.sort' , ['events'=> $events])}}">
                             <button type="button" class="btn btn-secondary">
                                 Sprawdż</button></a>
 

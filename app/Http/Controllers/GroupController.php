@@ -45,6 +45,7 @@ class GroupController extends Controller
 
         return redirect(route('group.index'))->with('success','Aktualizacja grupy przebiełam pomyśle.');
     }
+
     public function destroy(Group $group)
     {
         $group->delete();
