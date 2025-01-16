@@ -14,4 +14,8 @@ class Events extends Model
         'data',
         'time',
     ];
+    public function user_list()
+{
+    return $this->belongsToMany(User::class, 'user_event');
+}
 }

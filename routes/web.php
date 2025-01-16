@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\UserGroupController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserEventsController;
+use App\Http\Controllers\CarsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,5 +55,7 @@ Route::delete('/group/{group}/destroy', [GroupController::class, 'destroy'])->na
 Route::get('/group-user', [UserGroupController::class, 'index'])->name('group-user.index');
 Route::get('/group-user/show', [UserGroupController::class, 'show'])->name('group-user.show');
 Route::get('/group-user/create', [UserGroupController::class, 'create'])->name('group-user.create');
+
+
 
 
