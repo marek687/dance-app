@@ -14,9 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('group_user', function (Blueprint $table) {
-            $table->integer()->unsigned();
-            $table->unsignedBiginteger('user_id');
-            $table->unsignedBiginteger('group_id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('group_id')->unsigned();
 
             $table->foreign('user_id')->references('id')
                  ->on('users')->onDelete('cascade');
