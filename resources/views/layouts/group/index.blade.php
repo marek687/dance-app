@@ -26,6 +26,7 @@
         <th scope="col">Poziom grupy</th>
         <th scope="col">Opis</th>
         <th scope="col">Edycja</th>
+        <th scope="col">Użytkownicy grupy</th>
         <th scope="col">Usun</th>
       </tr>
     </thead>
@@ -38,6 +39,10 @@
         <td>{{$group->description}}</td>
         <td>
             <a href="{{route('group.edit',['group' => $group ])}}" class="btn btn-primary">Edycja</a>
+        </td>
+        <td>
+            
+            <a href="{{route('group.groupuser',['group' => $group])}}" class="btn btn-secondary">Członkowie</a>
         </td>
         <td>
             <form method="post" action="{{route('group.destroy', ['group' => $group ])}}">

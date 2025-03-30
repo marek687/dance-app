@@ -49,6 +49,9 @@ Route::get('/group/{group}/edit', [GroupController::class, 'edit'])->name('group
 Route::put('/group/{group}/update', [GroupController::class, 'update'])->name('group.update');
 Route::delete('/group/{group}/destroy', [GroupController::class, 'destroy'])->name('group.destroy');
 
+Route::get('/group/{group}/groupuser', [GroupController::class, 'groupuser'])->name('group.groupuser');
+
+
 
 
 

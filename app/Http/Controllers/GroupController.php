@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Group;
+use App\Models\User;
 
 class GroupController extends Controller
 {
@@ -50,5 +51,12 @@ class GroupController extends Controller
     {
         $group->delete();
         return redirect(route('group.index'))->with('success','Grupa została usunięta');
+    }
+    public function groupuser($id)
+    {
+        $groups = Group::find($id);
+        $users = User::find($id);
+
+        return view('layouts.group.groupuser',['groups' => $groups]); 
     }
 }
