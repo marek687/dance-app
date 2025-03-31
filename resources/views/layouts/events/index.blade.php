@@ -60,11 +60,9 @@
                         </form>
                     </th>
                     <th scope="col">
-                        <a class="dropdown-item" href="{{ route('events.sort' , ['events'=> $events])}}">
+                        <a class="dropdown-item " href="{{route('events.eventsuser',['events'=> $events])}}">
                             <button type="button" class="btn btn-secondary">
-                                Sprawdż</button></a>
-
-                        </div>
+                            Sprawdź</button></a>
                     </th>
                     <th scope="col">
                     <div class="col">

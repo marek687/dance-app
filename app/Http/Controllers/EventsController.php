@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Events;
+use App\Models\User;
 use Barryvdh\DomPDF\Facade\PDF;
 
 
@@ -70,5 +71,10 @@ class EventsController extends Controller
         dd($events);
        return view('layouts.events.sort');
     }
-
+    public function eventsuser($id)
+    {
+        $event = Events::find($id);
+        $user = User::find($id);
+        return view('layouts.events.eventsuser',['event' => $event]);
+    }
 }
