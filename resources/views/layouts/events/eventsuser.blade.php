@@ -36,7 +36,7 @@
 </table>
 
     <div class="col ">
-        <a href="{{ route('group.index')}}">
+        <a href="{{ route('events.index')}}">
             <button type="button" class="btn btn-primary">Powrót</button>
         </a>
     </div>

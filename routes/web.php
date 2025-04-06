@@ -39,7 +39,7 @@ Route::get('/events/{events}/eventsuser',[EventsController::class,'eventsuser'])
 Route::get('/invoice',[EventsController::class,'pdf_generator_get']);
 
 
-Route::get('/users/list',[UserController::class,'index'])->name('users.index');
+Route::get('/users/list',[UserController::class,'index'])->name('users.index')->middleware('can:isAdmin');
 
 
 Route::get('/group', [GroupController::class, 'index'])->name('group.index');
