@@ -77,4 +77,18 @@ class EventsController extends Controller
         $user = User::find($id);
         return view('layouts.events.eventsuser',['event' => $event]);
     }
+    public function delete($id)
+    {
+        $user = User::find($id); 
+        if($user !=null)
+        {
+            $user->delete();
+            return response()-> json([
+                'status' => 'success'
+            ]);
+        }
+        return response()->json([
+            'status' => 'błąd'
+        ]);
+    }
 }

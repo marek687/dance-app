@@ -91,5 +91,11 @@
         </main>
 
     </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+    
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script type="text/javascript">
+        @yield('javascript')
+    </script>
 </body>
 </html>

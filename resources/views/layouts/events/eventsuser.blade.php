@@ -13,7 +13,7 @@
       <th scope="col">Nazwisko</th>
       <th scope="col">Numer telefonu</th>
       <th scope="col">E-mail</th>
-      <th scope="col">Akcje</th>
+      <th scope="col">Usuń użytkownika</th>
     </tr>
   </thead>
   <tbody>
@@ -24,12 +24,14 @@
       <th scope="row">{{ $user->surname}}</th>
       <th scope="row">{{ $user->phone_number}}</th>
       <th scope="row">{{ $user->email}}</th>
-      <th scope="row">-----------</th>
+      <th scope="row">
+        <button class="btn btn-danger btn-sm delete-x" data-id="{{ $user->id }}">
+         X
+        </button>
+      </th>
     </tr>
     @empty
-    <p>
-        dfdfd
-    <p>
+    
     @endforelse
     
   </tbody>
@@ -43,5 +45,25 @@
 
 
 </body>
+
+@endsection
+@section('javascript')
+
+  $(document).ready( function() {
+    $('.delete-x').click( function() {
+      $.ajax({
+        method: "DELETE",
+        url:'/events/{events}/eventsuser/' + $(this).data("id"),
+       type:'DELETE',
+      })
+      .done( function (response){
+        alert('udało sie ');
+      })
+      .fail(function (response){
+        alert("error");
+      });
+    });
+
+  });
 
 @endsection
