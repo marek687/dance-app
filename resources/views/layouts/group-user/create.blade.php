@@ -27,7 +27,7 @@
                             <td>{{ $user->surname }}</td>
 
                             
-                            @foreach($user-> groups as $group)
+                            @foreach($user-> userlist as $group)
                             <td>{{$group->name }}</td>
 
                             

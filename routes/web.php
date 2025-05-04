@@ -55,11 +55,7 @@ Route::get('/group/{group}/groupuser', [GroupController::class, 'groupuser'])->n
 
 
 
-
-
-Route::get('/group-user', [UserGroupController::class, 'index'])->name('group-user.index');
-Route::get('/group-user/show', [UserGroupController::class, 'show'])->name('group-user.show');
-Route::get('/group-user/create', [UserGroupController::class, 'create'])->name('group-user.create');
+Route::get('/events/add/create', [UserGroupController::class, 'create'])->name('group-user.create');
 
 
 

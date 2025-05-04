@@ -54,6 +54,7 @@ class UserGroupController extends Controller
         $users = User::with('groups')->get();
         
         $users = User::orderBy('created_at','ASC');
+       
         
         return view('layouts.group-user.show',[
             'users'=> User::all()
